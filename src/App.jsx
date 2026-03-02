@@ -5,33 +5,31 @@ import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
-// import VideoDetails from './pages/VideoDetails';
-
+import VideoDetails from './pages/VideoDetails';
+import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
+import Watchlist from './pages/Watchlist';
+// src/App.jsx
 function App() {
-  
   const isAuthenticated = !!localStorage.getItem('loggedUser');
 
   return (
     <Router>
-      <Routes>
-        {/* Public Routes - Note the Capital Letters! */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-
-        {/* Protected Routes */}
-        <Route 
-          path="/" 
-          element={isAuthenticated ? <Home /> : <Navigate to="/login" />} 
-        />
+      <div className="bg-black min-h-screen"> {/* Force black background everywhere */}
+        {isAuthenticated && <Navbar />}
         
-        <Route 
-          path="/video/:id" 
-          element={isAuthenticated ? <VideoDetails /> : <Navigate to="/login" />} 
-        />
-
-        {/* Fallback - Redirects any unknown URL to Home */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+        {/* Wrap your pages in a div that adds space for the fixed Navbar */}
+        <div className={isAuthenticated ? "pt-20" : ""}>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            
+            <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            <Route path="/watchlist" element={<ProtectedRoute><Watchlist /></ProtectedRoute>} />
+            <Route path="/video/:id" element={<ProtectedRoute><VideoDetails /></ProtectedRoute>} />
+          </Routes>
+        </div>
+      </div>
     </Router>
   );
 }
