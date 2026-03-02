@@ -1,40 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Navigate, Route, Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
+
+
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+// import VideoDetails from './pages/VideoDetails';
 
 function App() {
-  const isAuthenticated = !! localStorage.getItem('loggedUser');
+  
+  const isAuthenticated = !!localStorage.getItem('loggedUser');
+
   return (
     <Router>
       <Routes>
-        {/*Public routes */}
-        <Route path ="/login"  element ={<login/>} />
-        <Route path ="/register" element = {<register/>}/>
+        {/* Public Routes - Note the Capital Letters! */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        {/*routes that need auth*/}
-        <Route path="/"
-        
-        element = {isAuthenticated ?<Home/> :<Navigate to = "/login"/>}
-        
+        {/* Protected Routes */}
+        <Route 
+          path="/" 
+          element={isAuthenticated ? <Home /> : <Navigate to="/login" />} 
         />
-        <Route path= "/video/:id"
         
-        element ={isAuthenticated ? <videoDetails/>: <Navigate to = "/login"/>}
+        <Route 
+          path="/video/:id" 
+          element={isAuthenticated ? <VideoDetails /> : <Navigate to="/login" />} 
         />
 
-        {/*fallback*/}
-
-        <Route  path="*" element ={<Navigate to= "/"/>}/>
-
-
-
-
-
+        {/* Fallback - Redirects any unknown URL to Home */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
