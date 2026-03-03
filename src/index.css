@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Netflix-style scrollbar behavior */
 @theme {
   --color-netflix-red: ;
 }
@@ -15,7 +14,6 @@
   }
 }
 
-/* Ensure the app takes up the full screen correctly */
 html, body, #root {
   height: 100%;
   margin: 0;

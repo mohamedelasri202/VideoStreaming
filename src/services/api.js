@@ -9,7 +9,7 @@ const options = {
   }
 };
 
-// 1. Fetch Lists (Trending, Top Rated, etc.)
+
 export const fetchMovies = async (endpoint) => {
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, options);
@@ -21,7 +21,7 @@ export const fetchMovies = async (endpoint) => {
   }
 };
 
-// 2. NEW: Fetch Specific Movie Details (Fixes your 401 error)
+
 export const fetchMovieDetails = async (movieId) => {
   try {
     const response = await fetch(`${BASE_URL}/movie/${movieId}?language=fr-FR`, options);
@@ -33,7 +33,6 @@ export const fetchMovieDetails = async (movieId) => {
   }
 };
 
-// 3. Fetch Trailer URL
 export const fetchMovieTrailer = async (movieId) => {
   try {
     const response = await fetch(`${BASE_URL}/movie/${movieId}/videos`, options);
@@ -52,7 +51,7 @@ export const fetchMovieTrailer = async (movieId) => {
   }
 };
 
-// 4. NEW: Search Movies (For your search suggestions requirement)
+
 export const searchMovies = async (query) => {
     try {
       const response = await fetch(`${BASE_URL}/search/movie?query=${encodeURIComponent(query)}&language=fr-FR`, options);

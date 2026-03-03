@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { VideoContext } from '../context/VideoContext';
-import { fetchMovieDetails, fetchMovieTrailer } from '../services/api'; // Use the helpers
+import { fetchMovieDetails, fetchMovieTrailer } from '../services/api'; 
 
 const VideoDetails = () => {
   const { id } = useParams();
@@ -9,18 +9,18 @@ const VideoDetails = () => {
   const [movie, setMovie] = useState(null);
   const [trailerUrl, setTrailerUrl] = useState('');
 
-  // Check if movie is already in watchlist
+  
   const isAdded = watchlist.some(m => m.id === parseInt(id));
 
   useEffect(() => {
     const getDetails = async () => {
-      // 1. Fetch details using the helper (Authorizes automatically)
+     
       const data = await fetchMovieDetails(id);
       setMovie(data);
 
-      // 2. Fetch trailer using the helper
+
       const trailer = await fetchMovieTrailer(id);
-      // We add ?autoplay=1&mute=1 to make it feel premium
+      
       setTrailerUrl(`${trailer}?autoplay=1&rel=0`);
     };
     
