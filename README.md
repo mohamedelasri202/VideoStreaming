@@ -189,13 +189,9 @@ npm run dev
 - UI/UX moderne et responsive
 - Architecture propre et modulaire
 
----
 
-## 📦 Livrables
 
-- Lien GitHub du projet
-- Lien Jira
-- Fichier README.md
+
 
 ---
 
@@ -203,5 +199,3 @@ npm run dev
 
 - Projet individuel
 - Durée : 5 jours
-- Du 02/02/26 au 06/02/26
-- Deadline : 06/02/26 avant minuit
