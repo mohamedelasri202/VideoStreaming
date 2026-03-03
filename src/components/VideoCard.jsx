@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const VideoCard = ({ video }) => {
   return (
-    // We wrap everything in a Link. The 'to' prop matches your Route path in App.jsx
+    // We wrap everything in a Link. The 'to' prop matches  Route path in App.jsx
     <Link to={`/video/${video.id}`} className="block">
       <div className="group relative bg-zinc-900 rounded-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:z-10 shadow-lg cursor-pointer">
         

@@ -9,7 +9,7 @@ import VideoDetails from './pages/VideoDetails';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import Watchlist from './pages/Watchlist';
-// src/App.jsx
+
 function App() {
   const isAuthenticated = !!localStorage.getItem('loggedUser');
 

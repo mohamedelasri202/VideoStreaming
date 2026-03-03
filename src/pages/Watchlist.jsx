@@ -6,7 +6,7 @@ const Watchlist = () => {
   const { watchlist, removeFromWatchlist } = useContext(VideoContext);
 
   return (
-    // pt-28 ensures the content starts AFTER the fixed Navbar
+    
     <div className="min-h-screen bg-black pt-28 px-4 md:px-12 text-white">
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-3xl font-bold border-l-4 border-red-600 pl-4">Ma Liste</h1>
